@@ -5,19 +5,7 @@ const cors = require('cors')
 const API_PORT = process.env.port || 8000;
 const app = express();
 
-const whitelist = [
-  'http://37.200.77.102:3000',
-  'http://localhost:3000',
-  'null',
-];
-const corsOptions = {
-  origin: function(origin, callback){
-      const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-      callback(null, originIsWhitelisted);
-  },
-  credentials: true
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 const router = express.Router();
 // (optional) only made for logging and
